@@ -17,8 +17,6 @@ autoinstall:
     - curtin in-target --target=/target -- latte-dock --import-layout /home/oem/.config/latte/WhiteSur.layout.latte
   user-data:
     packages:
-      - kubuntu-desktop
-      - kubuntu-restricted-extras
       - latte-dock
   oem-config:
     enable: true
