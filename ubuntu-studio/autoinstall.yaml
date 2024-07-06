@@ -1,9 +1,30 @@
+
 #cloud-config
 autoinstall:
   version: 1
   identity:
-    hostname: kubuntu-studio
+    hostname: ubuntu-studio
     username: oem
-    password: "password"
-  oem-config:
-    enable: true
+    password: "$6$rounds=4096$abc123$examplehashedpassword"
+  user-data:
+    disable_root: false
+    ssh:
+      install-server: true
+  storage:
+    layout:
+      name: lvm
+  locale: en_US
+  keyboard:
+    layout: us
+  network:
+    network:
+      version: 2
+      ethernets:
+        eth0:
+          dhcp4: true
+  packages:
+    - ubuntu-desktop
+    - ubuntustudio-desktop
+  late-commands:
+    - curtin in-target --target=/target -- apt-get -y install oem-config
+    - curtin in-target --target=/target -- oem-config-prepare
