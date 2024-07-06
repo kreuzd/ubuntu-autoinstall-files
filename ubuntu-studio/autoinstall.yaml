@@ -4,7 +4,7 @@ autoinstall:
   identity:
     hostname: ubuntu-studio
     username: oem
-    password: "$6$rounds=4096$abc123$examplehashedpassword"
+    password: "password"
   user-data:
     disable_root: false
     ssh:
