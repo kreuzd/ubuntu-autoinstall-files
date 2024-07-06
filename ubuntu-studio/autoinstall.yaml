@@ -5,22 +5,9 @@ autoinstall:
     hostname: kubuntu-studio
     username: oem
     password: "password"
-  locale: de_DE
+  locale: de_DE.UTF-8
   keyboard:
     layout: de
-  network:
-    network:
-      version: 2
-      ethernets:
-        eth0:
-          dhcp4: true
-  storage:
-    layout:
-      name: lvm
-  user-data:
-    disable_root: false
-    ssh:
-      install-server: true
   late-commands:
     - curtin in-target --target=/target -- apt-get update
     - curtin in-target --target=/target -- apt-get install -y latte-dock
